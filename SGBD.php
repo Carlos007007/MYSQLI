@@ -4,7 +4,7 @@
     /*Servidor*/
     define("HOST", 'localhost');
     /*Base de datos*/
-    define("DB", 'prueba');
+    define("DB", '');
     /*Nombre del usuario*/
     define("USER", "root");
     /*Contraseña*/
