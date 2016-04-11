@@ -57,4 +57,23 @@
             }
             return $consul;
         }
+        /*Funcion para limpiar cadenas de texto evitando inyeccion SQL*/
+        public static function CleanString($data) {
+            $data = addslashes($data);
+            /*Lista de palabras y caracteres a limpiar*/
+            $data = str_ireplace("<script>", "", $data);
+            $data = str_ireplace("</script>", "", $data);
+            $data = str_ireplace("DROP", "", $data);
+            $data = str_ireplace("UPDATE", "", $data);
+            $data = str_ireplace("DELETE", "", $data);
+            $data = str_ireplace("SELECT", "", $data);
+            $data = str_ireplace("FROM", "", $data);
+            $data = str_ireplace("--", "", $data);
+            $data = str_ireplace("^", "", $data);
+            $data = str_ireplace("[", "", $data);
+            $data = str_ireplace("]", "", $data);
+            $data = str_ireplace("\\", "", $data);
+            $data = str_ireplace("=", "", $data);
+            return $data;
+        }
     }
